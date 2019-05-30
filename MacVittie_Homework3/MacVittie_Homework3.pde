@@ -11,6 +11,7 @@ float earthYearLen = .05;
 float zoom = 1.0;
 
 /* color, dia, orbRad, ang, angRot, id, numMoons, parent, earthYearLen multiplier */ 
+float[] mercury = {#BABABA, 10, 78, 0, earthYearLen * 4.1, 0, 0, 0, 4.1};
 float[] venus = {#9b875F, 24, 144, 0, earthYearLen * 1.63, 1, 0, 0, 1.63};
 float[] earth = {#4040FF, 30, 200, 0, earthYearLen, 2, 1, 0, 2, 1};
 float[] luna = {#C0C0B4, 6, 26, 0, earthYearLen * 13, 3, 0, 2, 13};
@@ -19,7 +20,7 @@ float[] phobos = {#FFA07A, 4, 26, 0, mars[4] * (687 * 3), 5, 0, 4, 2061};
 float[] deimos = {#ABA172, 5, 32, 0, mars[4] * ((687) / 30.3), 6, 0, 4, 22.67};
 float[] jupiter = {#A68064, 70, 1040, 0, earthYearLen / 12, 7, 0, 0, -12};
 
-float[][] planets = {venus, earth, luna, mars, phobos, deimos, jupiter};
+float[][] planets = {mercury, venus, earth, luna, mars, phobos, deimos, jupiter};
 
 void doPlanet(float[] planet)
 {
