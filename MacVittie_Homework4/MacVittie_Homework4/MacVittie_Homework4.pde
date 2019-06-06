@@ -8,16 +8,21 @@ class Star
   float z;
   float pz; // prev z
   float speed;
+  float size;
   
   Star()
   {
+    setVars();
+  }
+  
+  void setVars()
+  {
+    z = random(width/2);
     x = random(-width/2, width/2);
     y = random(-height/2, height/2);
-    z = random(width/2);
-    
+    speed = random(1, 32);
+    size = random(-2, 24);
     pz = z;
-    
-    speed = random(0, 50);
   }
   
   void update()
@@ -26,11 +31,7 @@ class Star
     
     if(z < 1)
     {
-      z = random(width/2);
-      x = random(-width/2, width/2);
-      y = random(-height/2, height/2);
-      speed = random(1, 20);
-      pz = z;
+      setVars();
     }
   }
   
@@ -42,16 +43,10 @@ class Star
     float sx = map(x/z, 0, 1, 0, width/2);
     float sy = map(y/z, 0, 1, 0, height/2);
     
-    float r = map(z, 0, width/2, 16, 0);
+    float r = map(z, 0, width/2, size, 0);
     ellipse(sx, sy, r, r);
     
-    float px = map(x/pz, 0, 1, 0, width/2);
-    float py = map(y/pz, 0, 1, 0, height/2);
-    
     pz = z;
-    
-    //stroke(255);
-    //line(px, py, sx, sy);
   }
 }
 
@@ -76,6 +71,10 @@ void draw()
   for(int i = 0; i < stars.length; i++)
   {
     stars[i].update();
-    stars[i].show();
+    
+    if(stars[i].size >= 1)
+    {
+       stars[i].show(); 
+    }
   }
 }
