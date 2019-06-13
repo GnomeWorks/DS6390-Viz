@@ -1,0 +1,9 @@
+MACVITTIE - HOMEWORK 5
+
+The data used is the number of medical publications with the word "neuron" in them, taken from PubMed, since 1897.
+
+The image used is the first illustration made of neurons, produced by Golgi, after his invention of the silver-based stain that allowed for the staining of neurons to make them visible under a microscope.
+
+The algorithm used starts in the center of the image, zoomed in proportionally based upon the number of publications in a given year versus the total made. This has the effect of initial zooms being very blurry and unclear, mimicking our understanding of the neuron and our ability to investigate it at the time. As time progresses, more papers discussing neurons are published, and our understanding of neurons is made clearer.
+
+Golgi's discovery of what is simply known as the Golgi stain heralded the triumph of the neuronal theory of the brain, and paved the path for pretty much all of neuroscience since.
