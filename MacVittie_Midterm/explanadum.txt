@@ -1,0 +1,11 @@
+MACVITTIE - MIDTERM
+
+Again, my apologies for the tardiness... would have had this in sooner, but Processing crashed at one point, and I hadn't saved in awhile. Probably the coding equivalent of "a dog ate my homework," but.
+
+Data is taken from here: https://github.com/fivethirtyeight/data/tree/master/college-majors
+
+Initial display shows college major categories. Size of circles represent the percentage of people majoring in that category, compared to total.
+
+On mouseover of a category, circle changes from red to green, and displays list of majors within that category, in bar chart, each major's bar is percentage of people in that major within that major group.
+
+On click, mouseover display changes to show percentage of students who are female majoring in majors in that major category.
