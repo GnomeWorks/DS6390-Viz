@@ -1,0 +1,9 @@
+﻿NAME,TYPE,VALUE,ACC,DMGLOW,DMGHIGH,DMGTYPE,EFFECT
+Shortsword,Sword,5,0,1,8,Slash,
+Longsword,Sword,15,0,2,10,Slash,
+Rod,Rod,10,-1,1,2,Bludge,INT:+2
+WindRod,Rod,25,-1,1,2,Bludge,INT:+2;WINDDMG:+4
+Peacemaker,Gun,20,1,2,8,Pierce,
+Sixshooter,Gun,50,1,2,6,Pierce,DEX:+2
+Mallet,Hammer,10,-1,2,8,Bludge,
+Iron Hammer,Hammer,20,0,2,8,Bludge,

@@ -1,26 +1,40 @@
-int check = 0;
+import java.util.*;
+
+Control controller;
+Data data;
+
+Random rng;
+
+PFont ffont;
+
+void setup()
+{
+  rng = new Random();
+  ffont = createFont("/fonts/ff.ttf", 64);
+}
 
 void settings()
 {
-  size(800, 800);
+  size(1200, 800);
+  
+  controller = new Control();
+  
+  data = new Data();
 }
 
 void draw()
 {
-  background(0);
-  
-  if(check == 0)
-  {
-    rect(100, 100, 100, 100);
-  }
-  else
-  {
-    rect(200, 200, 200, 200);
-  }
+  controller.drawState();
 }
 
 void keyPressed()
 {
-  check++;
-  redraw();
+  controller.handleInput();
+  
+  /*
+  if(controller.getState() == gameState.START)
+  {
+    println("LOLWUT!");
+  }
+  */
 }
