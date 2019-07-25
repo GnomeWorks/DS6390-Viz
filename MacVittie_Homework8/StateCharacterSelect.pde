@@ -246,11 +246,13 @@ class StateCharacterSelect extends State
         
         if(job != null)
         {
-          job.charName = job.charName + key;
-          
           if(keyCode == BACKSPACE)
           {
             job.charName = job.charName.substring(0, max(0, job.charName.length() - 1));            
+          }
+          else if(keyCode != SHIFT)
+          {
+            job.charName = job.charName + key;
           }
         }
       }
@@ -288,10 +290,13 @@ class StateCharacterSelect extends State
             if(key == BACKSPACE)
             {
               job.charName = job.charName.substring(0, max(0, job.charName.length() - 1));
+              job.charName.replaceAll("[^a-zA-Z]", "");
             }
+            else if(key == SHIFT) {}
             else if(key != ENTER && job.charName.length() < 12)
             {
               job.charName = job.charName + key;
+              job.charName.replaceAll("[^a-zA-Z]", "");
             }
             else if(key == ENTER)
             {
