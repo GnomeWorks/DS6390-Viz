@@ -1,0 +1,8 @@
+﻿NAME,TYPE,HPCOST,MPCOST,TPCOST,DELAY,DMGMIN,DMGMAX,DMGTYPE,HEALMIN,HEALMAX,TARGET,TARGETTYPE,EFFECT,EFFECTDUR
+White Wind,Blue Magic,0,5,0,6,0,0,None,2,12,All,Ally,,
+Aero,Blue Magic,0,2,0,0,2,8,Wind,0,0,One,Enemy,,
+Cover,Chivalry,0,0,1,0,0,0,None,0,0,One,Ally,Cover,60
+Aim,Gunplay,0,0,2,0,0,0,None,0,0,One,Enemy,Lock,60
+Tranq,Green Magic,0,5,0,4,0,0,None,0,0,One,Ally,Tranq,60
+Blind,Green Magic,0,5,0,4,0,0,None,0,0,One,Enemy,Blind,60
+Protect,Green Magic,0,2,0,2,0,0,None,0,0,One,Ally,Protect,60

@@ -1,5 +1,5 @@
-NAME,ABRV,TYPE,STARTHP,STARTMP,STARTTP,STR,DEX,CON,INT,WIS,CHA,HPGROW,MPGROW,TPGROW,WEAPONPROF,ARMPROF,IMAGE
-Blue Mage,BLU,Caster,20,15,0,10,12,14,14,12,14,2,3,0,Sword;Rod,Light,blu.png
-Green Mage,GRN,Caster,20,15,0,14,10,12,12,16,14,2,3,0,Hammer;Staff,Light,grn.png
-Paladin,PLD,Martial,30,0,5,16,10,16,10,12,16,4,0,1,Sword;Hammer,Light;Heavy,pld.png
-Gunslinger,GUN,Martial,20,0,15,10,18,12,12,10,12,3,0,2,Gun;Whip,Light,gun.png
+NAME,ABRV,TYPE,STARTHP,STARTMP,STARTTP,STR,DEX,CON,INT,WIS,CHA,HPGROW,MPGROW,TPGROW,WEAPONPROF,ARMPROF,IMAGE,ABILITY
+Blue Mage,BLU,Caster,20,15,0,10,12,14,14,12,14,2,3,0,Sword;Rod,Light,blu.png,Blue Magic
+Green Mage,GRN,Caster,20,15,0,14,10,12,12,16,14,2,3,0,Hammer;Staff,Light,grn.png,Green Magic
+Paladin,PLD,Martial,30,0,5,16,10,16,10,12,16,4,0,1,Sword;Hammer,Light;Heavy,pld.png,Chivalry
+Gunslinger,GUN,Martial,20,0,15,10,18,12,12,10,12,3,0,2,Gun;Whip,Light,gun.png,Gunplay

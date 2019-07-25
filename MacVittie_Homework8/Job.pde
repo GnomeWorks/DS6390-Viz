@@ -1,9 +1,3 @@
-enum JobType
-{
-  CASTER,
-  MARTIAL
-}
-
 class Job
 {
   String name;
@@ -22,12 +16,15 @@ class Job
   int growMP;
   int growTP;
   String weapons;
+  ArrayList<WeaponType> wepProf;
   String armor;
   String select_img_name;
   
+  AbilityType ability;
+  
   PImage job_img;
   
-  public Job(String n_, String a_, String t_, int sHP_, int sMP_, int sTP_, int str_, int dex_, int con_, int int_, int wis_, int cha_, int gHP_, int gMP_, int gTP_, String wep_, String arm_, String img_)
+  public Job(String n_, String a_, String t_, int sHP_, int sMP_, int sTP_, int str_, int dex_, int con_, int int_, int wis_, int cha_, int gHP_, int gMP_, int gTP_, String wep_, String arm_, String img_, String ab_)
   {
     this.name = n_;
     this.abrev = a_;
@@ -56,6 +53,56 @@ class Job
       type = JobType.MARTIAL;
     }
     
+    if(ab_.equals("Blue Magic"))
+    {
+      ability = AbilityType.BLUE_MAGIC;
+    }
+    else if(ab_.equals("Green Magic"))
+    {
+      ability = AbilityType.GREEN_MAGIC;
+    }
+    else if(ab_.equals("Chivalry"))
+    {
+      ability = AbilityType.CHIVALRY;
+    }
+    else if(ab_.equals("Gunplay"))
+    {
+      ability = AbilityType.GUNPLAY;
+    }
+    
     this.job_img = loadImage(select_img_name);
+    
+    defineWeapProfs();
+  }
+  
+  private void defineWeapProfs()
+  {
+    wepProf = new ArrayList<WeaponType>();
+    
+    String[] tokens = weapons.split(";");
+    
+    for(String s : tokens)
+    {
+      WeaponType w = null;
+      
+      if(s.equals("Sword"))
+      {
+        w = WeaponType.SWORD;
+      }
+      if(s.equals("Hammer"))
+      {
+        w = WeaponType.HAMMER;
+      }
+      if(s.equals("Rod"))
+      {
+        w = WeaponType.ROD;
+      }
+      if(s.equals("Gun"))
+      {
+        w = WeaponType.GUN;
+      }
+      
+      wepProf.add(w);
+    }
   }
 }
