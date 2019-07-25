@@ -93,11 +93,29 @@ class Character extends Entity
   {
     this.abilityList = new ArrayList<Ability>();
     
+    ArrayList<Ability> possList = new ArrayList<Ability>();
+    
     for(Ability a : data.getAbilities())
     {
       if(a.type == this.job.ability)
       {
+        possList.add(a);
+        //this.abilityList.add(a);
+      }
+    }
+    
+    int poss = 0;
+    
+    for(Ability a : possList)
+    {
+      if(rng.nextInt(possList.size()) <= poss)
+      {
         this.abilityList.add(a);
+        poss = 0;
+      }
+      else
+      {
+        poss++;
       }
     }
   }

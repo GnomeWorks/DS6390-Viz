@@ -74,6 +74,14 @@ class Ability
     {
       dmgType = DamageType.WIND;
     }
+    if(dT_.equals("Lightning"))
+    {
+      dmgType = DamageType.LIGHTNING;
+    }
+    if(dT_.equals("Holy"))
+    {
+      dmgType = DamageType.HOLY;
+    }
     
     if(e_.equals("Cover"))
     {
@@ -95,6 +103,66 @@ class Ability
     {
       effect = EffectType.PROTECT;
     }
+    if(e_.equals("Stop"))
+    {
+      effect = EffectType.STOP;
+    }
+  }
+  
+  public ArrayList<Entity> getValidTargets(ArrayList<Entity> e_, Entity c_)
+  {
+    ArrayList<Entity> ret = new ArrayList<Entity>();
+    
+    for(Entity e : e_)
+    {
+      if(this.targetType.equals("Enemy"))
+      {
+        if(c_ instanceof Character)
+        {
+          if(e instanceof EntityMonster)
+          {
+            ret.add(e);
+          }
+        }
+        else if(c_ instanceof EntityMonster)
+        {
+          if(e instanceof Character)
+          {
+            ret.add(e);
+          }
+        }
+      }
+      else if(this.targetType.equals("Ally"))
+      {
+        if(c_ instanceof Character)
+        {
+          if(e instanceof Character)
+          {
+            ret.add(e);
+          }
+        }
+        else if(c_ instanceof EntityMonster)
+        {
+          if(e instanceof EntityMonster)
+          {
+            ret.add(e);
+          }
+        }
+      }
+      else if(this.targetType.equals("Self"))
+      {
+        if(e.name.equals(c_.name))
+        {
+          ret.add(e);
+        }
+      }
+      else if(this.targetType.equals("Any"))
+      {
+        ret.add(e);
+      }
+    }
+    
+    return ret;
   }
   
   public void setTarget(ArrayList<Entity> e_)

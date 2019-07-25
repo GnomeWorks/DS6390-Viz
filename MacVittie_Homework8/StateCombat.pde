@@ -3,6 +3,7 @@ class InitEvent
   int init;
   Entity ent;
   Ability abi;
+  Entity actor;
   
   public InitEvent(int i_, Entity e_)
   {
@@ -11,11 +12,12 @@ class InitEvent
     abi = null;
   }
   
-  public InitEvent(int i_, Ability a_)
+  public InitEvent(int i_, Ability a_, Entity e_)
   {
     init = i_;
     abi = a_;
     ent = null;
+    actor = e_;
   }
   
   public Object proc(int i_)
@@ -132,7 +134,7 @@ class StateCombat extends State
       image(cmd_menu, 340, (height * 2/3));
     }
     
-    test();
+    //test();
   }
   
   public gameState playerInput()

@@ -1,0 +1,4 @@
+class EntityMonster extends Entity
+{
+  
+}

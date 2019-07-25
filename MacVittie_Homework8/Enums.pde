@@ -23,7 +23,9 @@ enum DamageType
   SLASH,
   PIERCE,
   BLUDGE,
-  WIND
+  WIND,
+  HOLY,
+  LIGHTNING
 }
 
 enum gameState
@@ -47,7 +49,8 @@ enum EffectType
   LOCK,
   TRANQ,
   BLIND,
-  PROTECT
+  PROTECT,
+  STOP
 }
 
 enum AbilityType

@@ -1,4 +1,4 @@
-﻿NAME,TYPE,HPCOST,MPCOST,TPCOST,DELAY,DMGMIN,DMGMAX,DMGTYPE,HEALMIN,HEALMAX,TARGET,TARGETTYPE,EFFECT,EFFECTDUR
+NAME,TYPE,HPCOST,MPCOST,TPCOST,DELAY,DMGMIN,DMGMAX,DMGTYPE,HEALMIN,HEALMAX,TARGET,TARGETTYPE,EFFECT,EFFECTDUR
 White Wind,Blue Magic,0,5,0,6,0,0,None,2,12,All,Ally,,
 Aero,Blue Magic,0,2,0,0,2,8,Wind,0,0,One,Enemy,,
 Cover,Chivalry,0,0,1,0,0,0,None,0,0,One,Ally,Cover,60
@@ -6,3 +6,9 @@ Aim,Gunplay,0,0,2,0,0,0,None,0,0,One,Enemy,Lock,60
 Tranq,Green Magic,0,5,0,4,0,0,None,0,0,One,Ally,Tranq,60
 Blind,Green Magic,0,5,0,4,0,0,None,0,0,One,Enemy,Blind,60
 Protect,Green Magic,0,2,0,2,0,0,None,0,0,One,Ally,Protect,60
+Nurse,Chivalry,0,0,1,0,0,0,None,1,6,One,Self,,
+Saint Cross,Chivalry,0,10,0,4,2,12,Holy,0,0,All,Enemy,,
+Stopshot,Gunplay,0,0,10,0,1,6,None,0,0,One,Enemy,Stop,60
+Aera,Blue Magic,0,5,0,0,4,12,Wind,0,0,All,Enemy,,
+Boltshot,Gunplay,0,0,5,0,2,8,Lightning,0,0,One,Enemy,,
+1000 Needles,Blue Magic,0,15,0,0,10,10,Pierce,0,0,One,Enemy,,
