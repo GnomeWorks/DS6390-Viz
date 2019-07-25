@@ -1,6 +1,5 @@
 class StateStart extends State
 {
-  PImage title;
   float speed = 6; 
   float value = 0.0;
   int MAX = 255;
