@@ -14,6 +14,8 @@ class Character extends Entity
   
   public Character(String n_, Job j_)
   {
+    super();
+    
     this.name = n_;
     this.job = j_;
     

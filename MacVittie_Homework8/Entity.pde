@@ -17,6 +17,19 @@ class Entity
   int AC;
   int DR;
   
+  ArrayList<Effect> effectList;
+  
+  public Entity()
+  {
+    effectList = new ArrayList<Effect>();
+  }
+  
+  public void addEffect(EffectType e_, int d_)
+  {
+    Effect e = new Effect(e_, d_);
+    effectList.add(e);
+  }
+  
   public void rollInit()
   {
     this.init = rng.nextInt(20) + 1 + calcStatMod("DEX");
