@@ -1,8 +1,50 @@
+class InitEvent
+{
+  int init;
+  Entity ent;
+  Ability abi;
+  
+  public InitEvent(int i_, Entity e_)
+  {
+    init = i_;
+    ent = e_;
+    abi = null;
+  }
+  
+  public InitEvent(int i_, Ability a_)
+  {
+    init = i_;
+    abi = a_;
+    ent = null;
+  }
+  
+  public Object proc(int i_)
+  {
+    if(i_ == init)
+    {
+      if(abi == null)
+      {
+        return ent;
+      }
+      else if(ent == null)
+      {
+        return abi;
+      }
+    }
+    
+    return null;
+  }
+}
+
 class StateCombat extends State
 {
   gameState type = gameState.COMBAT;
   
   PImage btl_info;
+  PImage cmd_menu;
+  PImage abl_menu;
+  
+  Entity activeEntity;
   
   ArrayList<PImage> backgrounds;
   
@@ -24,6 +66,8 @@ class StateCombat extends State
   
   int[] partyImgXVals = { 1050, 1050, 1050, 1050 };
   int[] partyImgYVals = { 100, 200, 300, 400 };
+  
+  boolean isPlayerActive = true;
   
   public StateCombat()
   {
@@ -48,6 +92,8 @@ class StateCombat extends State
     
     bg = backgrounds.get(rng.nextInt(backgrounds.size()));
     btl_info = loadImage("/images/battle_info_min.png");
+    cmd_menu = loadImage("/images/command_menu2.png");
+    abl_menu = loadImage("/images/ability_select_menu.png");
   }
   
   public void drawState()
@@ -80,6 +126,13 @@ class StateCombat extends State
     {
       image(players.get(i).job.job_img, partyImgXVals[i], partyImgYVals[i], 60, 90); 
     }
+    
+    if(isPlayerActive)
+    {
+      image(cmd_menu, 340, (height * 2/3));
+    }
+    
+    test();
   }
   
   public gameState playerInput()
@@ -123,5 +176,34 @@ class StateCombat extends State
       {
         fill(255);
       }
+  }
+  
+  public void test()
+  {
+    if(isPlayerActive)
+    {
+      for(Character c : players)
+      {
+        c.rollInit();
+      }
+      
+      Collections.sort(players, new SortByInit());
+      
+      for(Character c : players)
+      {
+        println(c.name + " (" + c.init + ")");
+        
+        String s = "";
+        
+        for(Ability a : c.abilityList)
+        {
+          s += a.name + "; ";
+        }
+        
+        println("[" + s + "]");
+      }
+    }
+    
+    isPlayerActive = false;
   }
 }

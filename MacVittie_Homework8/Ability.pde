@@ -21,6 +21,9 @@ class Ability
   
   int effectDur;
   
+  // stuff for... in combat, i think?
+  Entity trg;
+  
   public Ability(String n_, String t_, int hp_, int mp_, int tp_, int d_, int dm_, int dM_, String dT_, int hm_, int hM_, String tt_, String tT_, String e_, int eD_)
   {
     name = n_;

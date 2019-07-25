@@ -43,6 +43,8 @@ class Character extends Entity
     
     this.setAbilities();
     
+    commands = new ArrayList<String>();
+    
     commands.add("Fight");
     commands.add(AbilityToString(this.job.ability));
   }

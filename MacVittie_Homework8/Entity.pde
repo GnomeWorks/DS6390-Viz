@@ -13,13 +13,13 @@ class Entity
   int curmp, maxmp;
   int curtp, maxtp;
   
-  int Init;
+  int init;
   int AC;
   int DR;
   
   public void rollInit()
   {
-    this.Init = rng.nextInt(20) + 1 + calcStatMod("Dex");
+    this.init = rng.nextInt(20) + 1 + calcStatMod("DEX");
   }
   
   public int calcStatMod(String s_)
@@ -27,17 +27,17 @@ class Entity
     switch(s_)
     {
       case "STR":
-        return (int)((int)Math.floor(getSTR() / 2) - 5);
+        return (int)((int)Math.floor((float)getSTR() / 2) - 5);
       case "DEX":
-        return (int)((int)Math.floor(getDEX() / 2) - 5);
+        return (int)((int)Math.floor((float)getDEX() / 2) - 5);
       case "CON":
-        return (int)((int)Math.floor(getCON() / 2) - 5);
+        return (int)((int)Math.floor((float)getCON() / 2) - 5);
       case "INT":
-        return (int)((int)Math.floor(getINT() / 2) - 5);
+        return (int)((int)Math.floor((float)getINT() / 2) - 5);
       case "WIS":
-        return (int)((int)Math.floor(getWIS() / 2) - 5);
+        return (int)((int)Math.floor((float)getWIS() / 2) - 5);
       case "CHA":
-        return (int)((int)Math.floor(getCHA() / 2) - 5);
+        return (int)((int)Math.floor((float)getCHA() / 2) - 5);
       default:
         return -5;
     }
@@ -71,5 +71,13 @@ class Entity
   public int getCHA()
   {
     return CHA;
+  }
+}
+
+class SortByInit implements Comparator<Entity>
+{
+  public int compare(Entity a, Entity b)
+  {
+    return b.init - a.init;
   }
 }
