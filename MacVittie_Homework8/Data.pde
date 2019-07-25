@@ -6,6 +6,8 @@ class Data
   
   private ArrayList<Job> jobs;
   
+  private ArrayList<Character> chars;
+  
   public Data()
   {
     this.init();
@@ -20,6 +22,8 @@ class Data
     doClasses();
     //doWeapons();
     //doArmor();
+    
+    chars = new ArrayList<Character>();
   }
   
   private void doClasses()
@@ -49,5 +53,10 @@ class Data
       
       this.jobs.add(j);
     }
+  }
+  
+  public void setCharacters(ArrayList<Character> list)
+  {
+    this.chars = list;
   }
 }

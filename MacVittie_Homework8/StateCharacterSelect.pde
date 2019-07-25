@@ -18,6 +18,9 @@ class JobSelector
   int jobNameX;
   int jobNameY;
   
+  int charNameX;
+  int charNameY;
+  
   float speed = 3; 
   float value = 0.0;
   int MAX = 120;
@@ -37,6 +40,11 @@ class JobSelector
     
     jobNameX = posX + 40;
     jobNameY = posY - 30;
+    
+    charNameX = posX + 40;
+    charNameY = posY + 170;
+    
+    //charName = "D00D";
   }
   
   public void cycleJobRight()
@@ -110,6 +118,7 @@ class JobSelector
     
     textFont(ffont);
     text(jobName, jobNameX, jobNameY);
+    text(charName, charNameX, charNameY);
   }
 }
 
@@ -121,32 +130,6 @@ class StateCharacterSelect extends State
   PImage selector;
   PImage lind;
   PImage rind;
-  
-  float speed = 6; 
-  float value = 0.0;
-  int MAX = 255;  
-  
-  // don't muck with these
-  float charAX = 343;
-  float charAY = 155;
-  
-  float charBX = 782;
-  float charBY = 155;
-  
-  float charCX = 343;
-  float charCY = 526;
-  
-  float charDX = 782;
-  float charDY = 526;
-  
-  float selX = charAX - 10;
-  float selY = charAY - 10;
-  
-  float rind_X = charAX + 80 + 20;
-  float rind_Y = charAY + 45;
-  
-  float lind_X = charAX - 24 - 20;
-  float lind_Y = charAY + 45;
   
   int[] xvals = { 343, 782, 343, 782 };
   int[] yvals = { 155, 155, 526, 526 };
@@ -165,8 +148,6 @@ class StateCharacterSelect extends State
     selector = loadImage("/images/char_selector.png");
     lind = loadImage("/images/left_ind.png");
     rind = loadImage("/images/right_ind.png");
-    
-    //chars = new ArrayList<Character>();
     
     chars = new ArrayList<JobSelector>();
     
@@ -217,7 +198,7 @@ class StateCharacterSelect extends State
   
   public gameState playerInput()
   {
-    if(key == CODED)
+    if(key == CODED) //<>//
     {
       if(mode == selMode.JOB)
       {
@@ -252,9 +233,25 @@ class StateCharacterSelect extends State
       
       if(mode == selMode.NAME)
       {
-        if(keyCode == 9) // tab 
+        JobSelector job = null;
+      
+        for(JobSelector j : chars)
         {
-          mode = selMode.JOB;
+          if(j.sel == true)
+          {
+            job = j;
+            break;
+          }
+        }
+        
+        if(job != null)
+        {
+          job.charName = job.charName + key;
+          
+          if(keyCode == BACKSPACE)
+          {
+            job.charName = job.charName.substring(0, max(0, job.charName.length() - 1));            
+          }
         }
       }
     }
@@ -267,12 +264,77 @@ class StateCharacterSelect extends State
           mode = selMode.NAME;
         }
       }
-      
-      if(mode == selMode.NAME)
+      else if(mode == selMode.NAME)
       {
         if(key == 9) // tab key!!!!
         {
           mode = selMode.JOB;
+        }
+        else
+        {
+          JobSelector job = null;
+      
+          for(JobSelector j : chars)
+          {
+            if(j.sel == true)
+            {
+              job = j;
+              break;
+            }
+          }
+          
+          if(job != null)
+          {
+            if(key == BACKSPACE)
+            {
+              job.charName = job.charName.substring(0, max(0, job.charName.length() - 1));
+            }
+            else if(key != ENTER && job.charName.length() < 12)
+            {
+              job.charName = job.charName + key;
+            }
+            else if(key == ENTER)
+            {
+              /* okay, now we need to do one of two things:
+                  (1) progress to next char in sequence, or
+                  (2) exit the char selection screen */
+                  
+              if(charSel == chars.size() - 1)
+              {
+                // oh boy!
+                // translate our job selector array list into actual characters, please, kthx
+                ArrayList<Character> list = new ArrayList<Character>();
+                
+                for(JobSelector j : chars)
+                {
+                  Character c = new Character(j.charName, j.curJob);
+                  list.add(c);
+                }
+                
+                data.setCharacters(list);
+                
+                return gameState.COMBAT;
+              }
+              else
+              {
+                charSel++;
+                
+                for(int i = 0; i < chars.size(); i++)
+                {
+                  if(i == charSel)
+                  {
+                    chars.get(i).sel = true;
+                  }
+                  else
+                  {
+                    chars.get(i).sel = false;
+                  }
+                }
+                
+                mode = selMode.JOB;
+              }
+            }
+          }
         }
       }
     }

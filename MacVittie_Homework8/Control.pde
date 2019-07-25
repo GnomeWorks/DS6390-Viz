@@ -47,7 +47,10 @@ class Control
           curState = new StateCharacterSelect();
           curStateType = gameState.PARTY_SELECT;
           break;
-        default:
+        case COMBAT:
+          curState = new StateCombat();
+          curStateType = gameState.COMBAT;
+        default:        
           break;
       }
     }
